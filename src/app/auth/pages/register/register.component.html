@@ -1,0 +1,78 @@
+<section class="d-flex flex-column align-items-center justify-content-center dimension" *ngIf="registerForm">
+    <form [formGroup]="registerForm" (ngSubmit)="sendForm()">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Document</label>
+            <input type="number" class="form-control" formControlName="Documento">
+            <span *ngIf="userDocumentos?.touched && userDocumentos?.hasError('required')">
+                Este valor es requerido
+            </span>
+            <span *ngIf="userDocumentos?.dirty && userDocumentos?.hasError('minLength')">
+                El valor debe tener minimo 6 digitos
+            </span>
+            <span *ngIf="userDocumentos?.dirty && userDocumentos?.hasError('maxLength')">
+                El valor debe tener minimo 6 digitos
+            </span>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Names</label>
+            <input type="text" class="form-control" formControlName="Nombres">
+            <span *ngIf="userNombres?.touched && userNombres?.hasError('required')">
+                Este valor es requerido
+            </span>
+            <span *ngIf="userNombres?.dirty && userNombres?.hasError('minLength')">
+                Este valor debe tener minimo 6 caracters
+            </span>
+            <span *ngIf="userNombres?.dirty && userNombres?.hasError('maxLength')">
+                Este valor debe tener minimo 6 caracters
+            </span>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">last Names</label>
+            <input type="text" class="form-control" formControlName="Apellidos">
+            <span *ngIf="userApellidos?.touched && userApellidos?.hasError('required')">
+                Este valor es requerido
+            </span>
+            <span *ngIf="userApellidos?.touched && userApellidos?.hasError('minLength')">
+                Este valor debe tener minimo 6 caracters
+            </span>
+            <span *ngIf="userApellidos?.touched && userApellidos?.hasError('maxLength')">
+                Este valor debe tener minimo 6 caracters
+            </span>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Phone</label>
+            <input type="number" class="form-control" formControlName="Telefono">
+            <span *ngIf="userTelefono?.touched && userTelefono?.hasError('required')">
+                Este valor es requerido
+            </span>
+            <span *ngIf="userTelefono?.touched && userTelefono?.hasError('minLength')">
+                Este valor debe tener minimo 6 caracters
+            </span>
+
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" formControlName="Correo">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            <span *ngIf="userEmail?.touched && userEmail?.hasError('required')">
+                Este valor es requerido
+            </span>
+            <span *ngIf="userEmail?.touched && userEmail?.hasError('email')">
+                Este valor debe ser un Email
+            </span>
+
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Adress</label>
+            <input type="name" class="form-control" formControlName='Direccion'>
+            <span *ngIf="userDirecion?.touched && userEmail?.hasError('required')">
+                Este valor es requerido
+            </span>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Submit</button>
+    </form>
+</section>

@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiPersona: 'http://190.60.101.59:6003/api/Personas',
 };
 
 /*
