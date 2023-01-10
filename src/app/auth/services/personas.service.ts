@@ -9,10 +9,10 @@ export class PersonasService {
   constructor(private readonly http: HttpClient) {}
 
   postPerson(person: any) {
-    console.log('entre');
     try {
-      this.http.post(environment.apiPersona, person);
-      throw alert('Usuario creado');
+      const user = this.http.post(environment.apiPersona, person);
+      user.subscribe(console.log);
+      throw alert(`Usario creado `);
     } catch (error) {
       console.log(error);
     }

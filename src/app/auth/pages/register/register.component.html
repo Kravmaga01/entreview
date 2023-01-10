@@ -1,4 +1,4 @@
-<section class="d-flex flex-column align-items-center justify-content-center dimension" *ngIf="registerForm">
+<section class="d-flex flex-column align-items-center justify-content-center dimension container" *ngIf="registerForm">
     <form [formGroup]="registerForm" (ngSubmit)="sendForm()">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Document</label>
@@ -6,12 +6,7 @@
             <span *ngIf="userDocumentos?.touched && userDocumentos?.hasError('required')">
                 Este valor es requerido
             </span>
-            <span *ngIf="userDocumentos?.dirty && userDocumentos?.hasError('minLength')">
-                El valor debe tener minimo 6 digitos
-            </span>
-            <span *ngIf="userDocumentos?.dirty && userDocumentos?.hasError('maxLength')">
-                El valor debe tener minimo 6 digitos
-            </span>
+
         </div>
 
         <div class="mb-3">
@@ -34,12 +29,7 @@
             <span *ngIf="userApellidos?.touched && userApellidos?.hasError('required')">
                 Este valor es requerido
             </span>
-            <span *ngIf="userApellidos?.touched && userApellidos?.hasError('minLength')">
-                Este valor debe tener minimo 6 caracters
-            </span>
-            <span *ngIf="userApellidos?.touched && userApellidos?.hasError('maxLength')">
-                Este valor debe tener minimo 6 caracters
-            </span>
+
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Phone</label>
@@ -47,15 +37,13 @@
             <span *ngIf="userTelefono?.touched && userTelefono?.hasError('required')">
                 Este valor es requerido
             </span>
-            <span *ngIf="userTelefono?.touched && userTelefono?.hasError('minLength')">
-                Este valor debe tener minimo 6 caracters
-            </span>
+
 
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
             <input type="email" class="form-control" formControlName="Correo">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            <div id="emailHelp" class="form-text text">We'll never share your email with anyone else.</div>
             <span *ngIf="userEmail?.touched && userEmail?.hasError('required')">
                 Este valor es requerido
             </span>

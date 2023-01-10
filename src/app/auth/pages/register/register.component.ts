@@ -21,38 +21,19 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
-      Documento: new FormControl(
-        '',
-        Validators.compose([Validators.required, Validators.minLength(8)])
-      ),
-      Nombres: new FormControl(
-        '',
-        Validators.compose([
-          Validators.minLength(6),
-          Validators.maxLength(16),
-          Validators.required,
-        ])
-      ),
+      Documento: new FormControl('', Validators.compose([Validators.required])),
+      Nombres: new FormControl('', Validators.compose([Validators.required])),
       Apellidos: new FormControl(
         '',
-        Validators.compose([
-          Validators.minLength(6),
-          Validators.maxLength(16),
-          Validators.required,
-        ])
+        Validators.compose([, Validators.required])
       ),
-      Telefono: new FormControl(
-        '',
-        Validators.compose([Validators.minLength(9), Validators.required])
-      ),
+      Telefono: new FormControl('', Validators.compose([Validators.required])),
       Correo: new FormControl(
         '',
         Validators.compose([Validators.email, Validators.required])
       ),
       Direccion: new FormControl('', Validators.required),
     });
-
-    this.registerForm?.valueChanges.subscribe(console.log);
   }
 
   get userDocumentos() {
@@ -78,5 +59,6 @@ export class RegisterComponent implements OnInit {
   sendForm() {
     const user = this.registerForm?.value;
     this.personasService.postPerson(user);
+    this.registerForm?.reset();
   }
 }
